@@ -420,12 +420,8 @@ class OVF(VMDescription, XML):
     @property
     def checksum_algorithm(self):
         """Get the preferred file checksum algorithm for this OVF."""
-        if self.ovf_version >= 2.0:
-            # OVF 2.x uses SHA256 for manifest
-            return 'sha256'
-        else:
-            # OVF 0.x and 1.x use SHA1
-            return 'sha1'
+        # Always return sha256
+        return "sha256"
 
     @property
     def product_class(self):
